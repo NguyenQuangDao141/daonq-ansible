@@ -3,6 +3,7 @@ pipeline {
     agent{
         docker {
             image 'khaliddinh/ansible'
+
         }
     }
     environment {
@@ -10,7 +11,7 @@ pipeline {
     }
     stages {
 
-        stage('Deploy Mysql container') {
+        stage('Deploy Application to Production') {
 
             steps {
                 withCredentials([file(credentialsId: 'ansible_key', variable: 'ansible_key')]) {
